@@ -4,27 +4,6 @@ An English learning app that helps you remember words.
 ## Try the App 
 🔗 See live version: https://fluentweb.pl
 
-if you see error called "Wystąpił nieznany błąd" and response status 403, you have to run google chrome in dev mode without CORS.
-
-### Windows:
-1. Exit all instance Chrome
-2. Open cmd or PowerShell
-3. Run this command `chrome.exe --disable-web-security --user-data-dir="C:\chrome-dev"`
-
-   
-### MacOS:
-1. Exit all instance Chrome
-2. Open terminal
-3. Run this command `open -na "Google Chrome" --args --disable-web-security --user-data-dir=/tmp/chrome-dev`
-
-
-### Linux:
-1. Exit all instance Chrome
-2. Open terminal
-3. Run this command `google-chrome --disable-web-security --user-data-dir=/tmp/chrome-dev`
-
-I'm working on solving this problem.
-
 ## 🚀 Technologies  
 
 ### 🎨 Frontend  
@@ -81,6 +60,3 @@ I'm working on solving this problem.
 
 Below is a diagram of the dependecies between the system components
 ![System Architecture](docs/diagram.png)
-
-## Known Issues
-- **CORS issue (403 error):** If you encounter this error, follow the instructions above to run Chrome in developer mode with CORS disabled.
