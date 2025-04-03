@@ -1,0 +1,87 @@
+spring:
+  data:
+    redis:
+      port: ${REDIS_PORT_GATEWAY}
+      host: ${REDIS_HOST_GATEWAY}
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+    fetchRegistry: true
+    registerWithEureka: true
+  instance:
+    hostname: ${HOSTNAME:localhost}
+    prefer-ip-address: false
+    instance-id: ${spring.application.name}:${server.port}
+
+spring.cloud.gateway:
+  discovery:
+    locator:
+      enabled: true
+      lower-case-service-id: true
+
+  default-filters:
+    - DedupeResponseHeader=Access-Control-Allow-Origin
+    - AddResponseHeader=Vary, Origin
+    - AddResponseHeader=Access-Control-Expose-Headers, *
+  globalcors:
+    cors-configurations:
+      '[/**]':
+        allowed-origins: "https://fluentweb.pl"
+        allowed-methods:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
+        allowed-headers: "*"
+        allow-credentials: true
+        max-age: 3600
+  routes:
+    - id: word-service
+      uri: lb://word-service
+      predicates:
+        - Path=/api/stats/**, /api/user/review/**, /api/admin/words/**
+      filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 5
+            redis-rate-limiter.burstCapacity: 10
+            redis-rate-limiter.requestedTokens: 1
+            key-resolver: "#{@ipKeyResolver}"
+
+
+    - id: user-service
+      uri: lb://user-service
+      predicates:
+        - Path=/api/auth/**, /api/admin/users/**, /api/system/users/**, /api/user/**
+      filters:
+        - PreserveHostHeader
+        - RewritePath=/api/auth/refresh\?refreshToken=(?<refreshToken>[^&]+), /api/auth/refresh?refreshToken=${refreshToken}
+        - AddRequestHeader=Host, user-service
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
+            redis-rate-limiter.requestedTokens: 1
+            key-resolver: "#{@ipKeyResolver}"
+
+    - id: score-service
+      uri: lb://score-service
+      predicates:
+        - Path=/api/userScore/**
+      filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 5
+            redis-rate-limiter.burstCapacity: 10
+            redis-rate-limiter.requestedTokens: 1
+            key-resolver: "#{@ipKeyResolver}"
+
+logging:
+  level:
+    org.springframework.cloud.loadbalancer: DEBUG
+    org.springframework.cloud.netflix.ribbon: DEBUG
