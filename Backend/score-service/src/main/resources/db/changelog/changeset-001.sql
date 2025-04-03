@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS user_score (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL UNIQUE,
+    score NUMERIC DEFAULT 0
+);

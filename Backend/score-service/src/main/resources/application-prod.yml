@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    url: ${SPRING_DATABASE_URL_SCORE_SERVICE}
+    username: ${SPRING_DATABASE_USERNAME_SCORE_SERVICE}
+    password: ${SPRING_DATABASE_PASSWORD_SCORE_SERVICE}
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+    enabled: true
+
+  jpa:
+    database-platform:
+    hibernate:
+      ddl-auto: validate
+
+  rabbitmq:
+    first:
+      host: ${RABBITMQ_FIRST_HOST_SCORE_SERVICE}
+      port: 5672
+      username: ${RABBITMQ_FIRST_USERNAME_SCORE_SERVICE}
+      password: ${RABBITMQ_FIRST_PASSWORD_SCORE_SERVICE}
+    second:
+      host: ${RABBITMQ_SECOND_HOST_SCORE_SERVICE}
+      port: 5672
+      username: ${RABBITMQ_SECOND_USERNAME_SCORE_SERVICE}
+      password: ${RABBITMQ_SECOND_PASSWORD_SCORE_SERVICE}
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST_SCORE_SERVICE}
+      port: 6379
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${SECURITY_URL}
+
+user-service:
+  auth-url: ${AUTH_LOGIN_URL}
+  refresh-url: ${REFRESH_TOKEN_URL}
+  auth-username: ${SCORE_SERVICE_ACCOUNT_USERNAME}
+  auth-password: ${SCORE_SERVICE_ACCOUNT_PASSWORD}
+  jwks-url: ${SECURITY_URL}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL}
+    fetchRegistry: true
+    registerWithEureka: true
+  instance:
+    hostname: score-service
+    prefer-ip-address: false
+    ip-address: score-service:8083
+
+app:
+  current-url: https://fluentweb.pl
+  current-api: https://api.fluentweb.pl
