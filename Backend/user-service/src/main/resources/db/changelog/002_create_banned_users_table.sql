@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS banned_users(
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    time_of_ban TIMESTAMP NOT NULL DEFAULT NOW()
+);

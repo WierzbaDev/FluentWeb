@@ -1,0 +1,18 @@
+# user-service
+backend/user-service/.idea
+backend/user-service/.mvn
+backend/user-service/META-INF
+backend/user-service/target/
+backend/user-service/.gitattributes
+backend/user-service/certificate.pem
+backend/user-service/csr.pem
+backend/user-service/public.pem
+backend/user-service/private.pem
+backend/user-service/HELP.md
+backend/user-service/src/main/resource/keystore.p12/keystore.p12
+backend/user-service/src/main/resources/META-INF/MANIFEST.MF
+backend/user-service/src/main/resources/keystore.p12
+backend/user-service/src/main/resources/application.properties
+backend/user-service/src/main/resources/application-dev.yml
+backend/user-service/src/main/resources/application-dockerdev.yml
+backend/user-service/src/main/resources/application-test.yml

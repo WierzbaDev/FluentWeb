@@ -1,0 +1,19 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+   <changeSet id="001" author="Wierzba">
+       <sqlFile path="001_create_users_table.sql" relativeToChangelogFile="true"/>
+   </changeSet>
+
+    <changeSet id="002" author="Wierzba">
+        <sqlFile path="002_create_banned_users_table.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="003" author="Wierzba">
+        <sqlFile path="003_create_table_password_reset_token_table.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+</databaseChangeLog>

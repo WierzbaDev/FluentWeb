@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  liquibase:
+    change-log: db/changelog/changelog-master.xml
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST}
+      port: 6379
+
+  rabbitmq:
+    first:
+      host: ${SPRING_RABBITMQ_FIRST_HOST}
+      port: 5672
+      username: ${SPRING_RABBITMQ_FIRST_USERNAME}
+      password: ${SPRING_RABBITMQ_FIRST_PASSWORD}
+    second:
+      host: ${SPRING_RABBITMQ_SECOND_HOST}
+      port: 5672
+      username: ${SPRING_RABBITMQ_SECOND_USERNAME}
+      password: ${SPRING_RABBITMQ_SECOND_PASSWORD}
+    third:
+      host: ${SPRING_RABBITMQ_THIRD_HOST}
+      port: 5672
+      username: ${SPRING_RABBITMQ_THIRD_USERNAME}
+      password: ${SPRING_RABBITMQ_THIRD_PASSWORD}
+
+keystore:
+  file: /app/keystore.p12
+  password: nonfaf-vykju4-Wirtob
+  alias: rsa-keypair
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+    fetchRegistry: true
+    registerWithEureka: true
+  instance:
+    hostname: user-service
+    prefer-ip-address: false
+    instance-id: user-service:8080
+    appname: user-service
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
