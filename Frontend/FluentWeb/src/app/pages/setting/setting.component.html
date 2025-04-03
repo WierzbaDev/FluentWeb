@@ -1,0 +1,16 @@
+<div class="nav">
+  <app-nav></app-nav>
+</div>
+<div class="container-setting">
+  <div class="header-setting">
+    <h3>Ustawienia</h3>
+    <div class="date">
+      <p class="date">{{ someDateVariable | customDate }}</p>
+    </div>
+    <div class="logout-button-div">
+      <button class="logout-button" (click)="toggleLogoutPanel()">Wyloguj się</button>
+      <app-confirm-logout *ngIf="isLogoutPanelOpen" (close)="closeLogoutPanel()"></app-confirm-logout>
+    </div>
+  </div>
+  <app-user-panel [isAdmin]="false" dashboardRoute="/dashboard"></app-user-panel>
+</div>

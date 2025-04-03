@@ -1,0 +1,25 @@
+<div class="podium-ranking" *ngIf="(podium?.length ?? 0) >= 3">
+  <div class="second-position">
+    <div class="user">{{ podium[1].name }}</div>
+    <div class="podium-box-1">
+      <p class="score">{{ podium[1].score }}</p>
+      <p class="second-number">2</p>
+    </div>
+  </div>
+
+  <div class="first-position">
+    <div class="user">{{ podium[0].name }}</div>
+    <div class="podium-box-2">
+      <p class="score">{{ podium[0].score }}</p>
+      <p class="first-number">1</p>
+    </div>
+  </div>
+
+  <div class="third-position">
+    <div class="user">{{ podium[2].name }}</div>
+    <div class="podium-box-3">
+      <p class="score">{{ podium[2].score }}</p>
+      <p class="third-number">3</p>
+    </div>
+  </div>
+</div>

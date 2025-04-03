@@ -1,0 +1,58 @@
+.podium-ranking {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.second-position, .first-position, .third-position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.podium-box-1, .podium-box-2, .podium-box-3 {
+  width: 120px;
+  min-width: 100px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.podium-box-1 {
+  background-color: #84D4D8;
+}
+
+.podium-box-2 {
+  background-color: #28B1B7;
+}
+
+.podium-box-3 {
+  background-color: #5FA5A8;
+}
+
+.first-number {
+  font-size: 30px;
+}
+
+.second-number {
+  font-size: 25px;
+}
+
+.third-number {
+  font-size: 20px;
+}
+
+.second-position .podium-box-1 { height: 200px; }
+.first-position .podium-box-2 { height: 250px; }
+.third-position .podium-box-3 { height: 150px; }

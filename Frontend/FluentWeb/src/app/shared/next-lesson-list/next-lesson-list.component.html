@@ -1,0 +1,9 @@
+<div class="lesson-card">
+  <div class="lesson-header">Twoja następna lekcja</div>
+  <div class="row" *ngFor="let item of words; let i = index">
+    <div class="index">{{ i + 1 }}.</div>
+    <div class="source-word"><strong>{{ item.sourceWord }}</strong></div>
+    <div class="minus">-</div>
+    <div class="translation">{{ item.translation }}</div>
+  </div>
+</div>

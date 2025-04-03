@@ -1,0 +1,39 @@
+<div class="create-button-panel">
+  <button class="create-button" type="button" (click)="toggleCreateWordPanel()">Stwórz słówko</button>
+</div>
+
+<div class="container" *ngIf="createWordPanel">
+
+
+  <div class="content">
+    <div class="header">
+      <h2>Dodaj nowe słówo</h2>
+    </div>
+    <form (ngSubmit)="create()" (click)="$event.stopPropagation()">
+      <input type="text"
+             id="sourceWord"
+             name="sourceWord"
+             [(ngModel)]="sourceWord"
+             placeholder="Podaj słowo"
+             required
+      />
+
+      <input type="text"
+             id="pl-translation"
+             name="pl-translation"
+             [(ngModel)]="translation"
+             placeholder="Podaj tłumaczenie"
+             required
+      />
+
+      <select required [(ngModel)]="level" name="cerfLevel">
+        <option *ngFor="let level of cerfLevel" [value]="level">{{ level }}</option>
+      </select>
+
+      <div class="buttons">
+        <button class="cancel-button" type="button" (click)="closeCreateWordPanel()">Anuluj</button>
+        <button class="create-new-word-button" type="submit">Utwórz</button>
+      </div>
+    </form>
+  </div>
+</div>

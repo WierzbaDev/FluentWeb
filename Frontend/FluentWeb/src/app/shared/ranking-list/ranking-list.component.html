@@ -1,0 +1,25 @@
+<div class="ranking-list">
+  <h2 class="title-header">🏅 Ranking</h2>
+  <div class="scrollable-container">
+    <table class="ranking-table">
+      <thead>
+      <tr class="columns-name">
+        <th class="column">Pozycja</th>
+        <th class="column">Nazwa</th>
+        <th class="column">Punkty</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let player of rankingList">
+        <td>{{ player.position }}</td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.score }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="user-position" *ngIf="userRanking">
+    📍 Twoja pozycja: {{ userRanking.position }} - {{ userRanking.name }} ({{ userRanking.score }} pkt)
+  </div>
+</div>

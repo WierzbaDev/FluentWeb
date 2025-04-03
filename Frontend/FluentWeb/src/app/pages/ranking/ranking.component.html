@@ -1,0 +1,27 @@
+<div class="nav">
+  <app-nav></app-nav>
+</div>
+
+<div class="container">
+  <div class="header">
+    <div class="name-section">
+      <h3>Globalny ranking</h3>
+    </div>
+    <div class="date-panel">
+      <p class="date">{{ someDateVariable | customDate }}</p>
+    </div>
+    <app-user-profile-nav></app-user-profile-nav>
+  </div>
+
+  <div class="content">
+    <div class="left-side-content">
+      <div class="motivate-banner">
+        <h1>🏆 Wspinaj się na szczyt – kto dziś króluje? 🚀</h1>
+      </div>
+      <app-podium [podium]="podium"></app-podium>
+    </div>
+    <div class="ranking-list">
+      <app-ranking-list [ranking]="restOfRanking"></app-ranking-list>
+    </div>
+  </div>
+</div>

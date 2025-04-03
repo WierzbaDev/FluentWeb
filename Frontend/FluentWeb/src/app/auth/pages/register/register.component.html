@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="content">
+  <h2>Rejestracja</h2>
+    <form (ngSubmit)="register()">
+        <input type="text" [(ngModel)]="name" id="name" name="name" placeholder="Imię" required />
+        <input type="text" [(ngModel)]="surname" id="surname" name="surname" placeholder="Nazwisko" required />
+        <input type="text" [(ngModel)]="email" id="email" name="email" placeholder="E-mail" required />
+        <input type="{{ passwordVisible ? 'text' : 'password' }}"
+               [(ngModel)]="password"
+               id="password"
+               name="password"
+               placeholder="Hasło"
+               required
+        />
+        <input type="{{ passwordVisible ? 'text' : 'password' }}"
+               [(ngModel)]="repeatPassword"
+               id="repeatPassword"
+               name="repeatPassword"
+               placeholder="Powtórz hasło"
+               required
+        />
+        <input type="date" [(ngModel)]="birthday" id="birthday" name="birthday" placeholder="Data urodzenia" required />
+      <div class="buttons">
+        <button type="button" (click)="togglePasswordVisibility()">
+          {{ passwordVisible ? 'Ukryj hasło' : 'Pokaż hasło' }}
+        </button>
+        <button type="submit">Zarejestruj się</button>
+      </div>
+      <p>Masz już konto? <a routerLink="/auth/login">Zaloguj się</a> </p>
+    </form>
+  </div>
+</div>

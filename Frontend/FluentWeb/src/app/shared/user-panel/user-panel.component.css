@@ -1,0 +1,100 @@
+.content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 450px;
+  height: auto;
+  padding: 30px;
+  box-shadow: 2px 2px 2px gray;
+}
+
+p {
+  border-bottom: 1px solid #cfcfcf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.surname-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.email-container, .birthday-container {
+  margin-right: 40px;
+}
+
+.exit-button {
+  align-self: flex-start;
+}
+
+.user-data {
+  width: 80%;
+}
+
+.exit-button {
+  border: none;
+  background: none;
+}
+.exit-button svg path {
+  fill: #1D1B20;
+}
+
+.exit-button:hover svg path{
+  fill: rgba(224, 224, 224, 0.8);
+}
+
+.icon {
+  border: none;
+  background: none;
+}
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.change-password-button {
+  background-color: #28B1B7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px
+}
+
+.delete-account-button {
+  background-color: #E63946;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px
+}
+
+.delete-account-button:hover {
+  background-color: #e80f1f;
+}
+
+.change-password-button:hover {
+  background-color: rgba(40, 177, 183, 0.69);
+}
+
+@media (max-width: 560px) {
+  .content {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .content {
+    width: 80%;
+    padding: 15px;
+
+  }
+}

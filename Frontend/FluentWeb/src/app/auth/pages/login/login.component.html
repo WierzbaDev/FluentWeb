@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="content">
+    <h2>Zaloguj się</h2>
+    <form (ngSubmit)="login()">
+      <input type="text" [(ngModel)]="email" id="email" name="email" placeholder="E-mail" required />
+      <input type="{{ passwordVisible ? 'text' : 'password' }}"
+             [(ngModel)]="password"
+             id="password"
+             name="password"
+             placeholder="Hasło"
+             required
+      />
+      <div class="buttons">
+        <button type="button" (click)="togglePasswordVisibility()">
+          {{ passwordVisible ? 'Ukryj hasło' : 'Pokaż hasło' }}
+        </button>
+        <button type="submit">Zaloguj</button>
+      </div>
+      <div class="help-urls">
+        <p>Nie masz konta? <a [routerLink]="['/auth/register']">Zarejestruj się</a></p>
+        <p>Zapomniałeś hasła <a [routerLink]="['/forgot-password']">Reset hasła</a></p>
+      </div>
+    </form>
+  </div>
+</div>

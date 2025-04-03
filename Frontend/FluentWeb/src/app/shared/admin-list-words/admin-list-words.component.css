@@ -1,0 +1,78 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  background-color: #28B1B7;
+  padding: 20px;
+  color: white;
+}
+
+.change-page {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: end;
+  margin-right: 20%;
+  padding: 20px;
+}
+
+tr {
+  border-radius: 10px;
+}
+
+th {
+  padding: 10px;
+
+}
+table {
+  border-spacing: 0;
+}
+
+td {
+  text-align: center;
+}
+
+.prev-page, .next-page {
+  border: none;
+  background-color: #28B1B7;
+  color: white;
+  border-radius: 10px;
+  width: 3%;
+}
+
+.prev-page {
+  margin-right: 15px;
+}
+
+.next-page {
+  margin-left: 15px;
+}
+
+.edit-button, .delete-button, .cancel-button {
+  border: none;
+  padding: 10px;
+  background-color: #28B1B7;
+  color: white;
+  border-radius: 10px;
+}
+
+.delete-button {
+  background-color: #e82d2d;
+}
+
+.cancel-button {
+  background-color: #a5a5a5;
+}
+
+input, select {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px #17a2b8 solid;
+}
+
+input:focus, select:focus {
+  border: 2px #17a2b8 solid;
+  outline: none;
+}

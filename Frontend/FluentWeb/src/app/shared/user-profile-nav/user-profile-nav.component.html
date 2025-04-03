@@ -1,0 +1,19 @@
+<div class="header" (click)="toggleMenu($event)">
+  <!-- profile image form db -->
+  <h4>{{ user.name }}</h4>
+  <button class="user-nav" type="button">▼</button>
+</div>
+
+<div class="user-menu" *ngIf="isMenuOpen">
+  <h2>{{ user.name }}</h2>
+  <div class="user-data">
+    <h5>Imię: {{user.name}}</h5>
+    <h5>Nazwisko: {{user.surname}}</h5>
+    <h5>Email: {{user.email}}</h5>
+  </div>
+
+  <div class="logout-button-panel">
+    <button class="logout-button" (click)="toggleLogoutPanel()" >Wyloguj się</button>
+    <app-confirm-logout *ngIf="isLogoutPanelOpen" (close)="closeLogoutPanel()"></app-confirm-logout>
+  </div>
+</div>

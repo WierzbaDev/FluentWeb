@@ -1,0 +1,51 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 100px;
+  background: rgb(132,212,216);
+  background: linear-gradient(90deg, rgba(132,212,216,1) 0%, rgba(40,177,183,1) 100%);
+  border-radius: 15px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+h2 {
+  margin: 0;
+}
+
+p, h2 {
+  color: white;
+}
+
+.cancel-logout-button {
+  background-color: #FFFFFF ;
+  color: #84D4D8;
+}
+
+.confirm-logout-button {
+  background-color: #E53E3E;
+  color: #FFFFFF;
+}
+
+
+.confirm-logout-button:hover {
+  background-color: #e01c1c;
+}
+
+.cancel-logout-button:hover {
+  background-color: #f6f6f6;
+}

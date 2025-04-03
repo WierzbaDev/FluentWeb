@@ -1,0 +1,13 @@
+<div class="review-card" *ngIf="isAnyWords">
+  <div class="review-header">Słowka do powtórki na dziś</div>
+  <div class="row" *ngFor="let item of words; let i = index">
+    <div class="index">{{ i + 1 }}.</div>
+    <div class="source-word"><strong>{{ item.word.sourceWord }}</strong></div>
+    <div class="minus">-</div>
+    <div class="translation">{{ item.word.translation.PL }}</div>
+  </div>
+</div>
+
+<div class="no-review-word" *ngIf="!isAnyWords">
+  <div class="no-review-header"><p>Nie masz żadnych słówek do powtórki na dzisiaj</p></div>
+</div>

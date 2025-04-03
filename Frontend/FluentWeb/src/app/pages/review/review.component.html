@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="header">
+    <div class="exit-repeat">
+      <button [routerLink]="['/dashboard']">X</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <h1>📖 Czas na powtórkę!</h1>
+    <p class="text">Każde słowo to krok bliżej do perfekcji 🚀</p>
+    <div class="count-stats">
+      <p class="correct-info">✅ Poprawnie: {{ correctCount }}</p>
+      <p class="incorrect-info">❌Błędy: {{ wrongCount }}</p>
+      <p class="count-words-info">📖Liczba słówek: {{ reviewQueue.length }}</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="review-page" *ngIf="reviewQueue.length > 0; else noWords">
+      <div class="target-word">
+        <h3>{{ reviewQueue[currentIndex].word.sourceWord }}</h3>
+        <button class="speak-button" (click)="speak( reviewQueue[currentIndex].word.sourceWord || '')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 3.83394C15.5 1.8268 13.254 0.637995 11.5942 1.76663L3.18845 7.48256C1.81945 8.41347 1 9.96166 1 11.6172V12.3828C1 14.0383 1.81945 15.5865 3.18845 16.5174L11.5942 22.2334C13.254 23.362 15.5 22.1732 15.5 20.1661V3.83394ZM12.7188 3.42048C13.0508 3.19475 13.5 3.43252 13.5 3.83394V20.1661C13.5 20.5675 13.0508 20.8052 12.7188 20.5795L4.31307 14.8636C3.49167 14.305 3 13.3761 3 12.3828V11.6172C3 10.6239 3.49167 9.69496 4.31307 9.13641L12.7188 3.42048ZM17.0001 7.00002C16.9996 7 16.9996 7 17 7V5C17.4505 5 18.0356 5.1651 18.6038 5.41354C19.2018 5.67505 19.8825 6.07295 20.5277 6.62882C21.8319 7.75238 23 9.53527 23 12.0845C23 14.6381 21.8274 16.3851 20.5109 17.4698C19.8614 18.005 19.1778 18.3799 18.5797 18.623C18.0067 18.8559 17.4326 19 17 19V17L17.0004 17L17.0015 17L17.0058 16.9998C17.007 16.9998 17.0083 16.9997 17.0097 16.9996C17.013 16.9995 17.0171 16.9992 17.022 16.9988C17.0361 16.9977 17.0551 16.9956 17.0792 16.9922C17.1277 16.9852 17.1905 16.9734 17.2667 16.955C17.4195 16.918 17.6106 16.858 17.8265 16.7703C18.2597 16.5942 18.7636 16.3181 19.2391 15.9263C20.1726 15.1572 21 13.9464 21 12.0845C21 10.2183 20.1681 8.95889 19.2223 8.14406C18.7425 7.73075 18.2357 7.43542 17.8025 7.24601C17.5864 7.15151 17.3965 7.08685 17.2462 7.04707C17.1712 7.02725 17.1106 7.01479 17.065 7.00758C17.0238 7.00108 17.003 7.00015 17.0001 7.00002ZM19.5 12C19.5 9.5 17 9 17 9V15C17 15 19.5 14.5 19.5 12Z" fill="#2C2C2C"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="image">
+        <!--      image-->
+      </div>
+
+      <div class="user-answer" (click)="focusInput()" tabindex="0">
+        <p class="info">Twoja odpowiedź</p>
+        <input
+          #answerInput
+          type="text"
+          [(ngModel)]="userAnswer"
+          [disabled]="showCorrectAnswer"
+          *ngIf="!showCorrectAnswer"
+          required
+        />
+      </div>
+
+      <div class="feedback" *ngIf="feedback">
+        <p>{{ feedback }}</p>
+      </div>
+
+      <div class="correct-answer" *ngIf="showCorrectAnswer">
+        <p>Poprawna odpowiedź: <strong>{{ reviewQueue[currentIndex].word.translation.PL }}</strong></p>
+        <p class="continue-message">Kliknij „Kontynuuj” lub naciśnij dowolny klawisz, aby przejść dalej.</p>
+        <div class="next-container" *ngIf="showCorrectAnswer">
+          <button class="next-button" (click)="nextWord()">Kontynuuj</button>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="idk-button" (click)="skipWord()" *ngIf="!showCorrectAnswer">Nie pamiętam</button>
+        <button class="answer" (click)="checkAnswer()" *ngIf="!showCorrectAnswer">Odpowiedz</button>
+      </div>
+    </div>
+
+    <ng-template #noWords>
+      <div class="review-next-page">
+        <p class="next-review-p">🎉 Gratulacje! Ukończyłeś Powtórkę.</p>
+        <button class="next-review-button" (click)="loadNextReview()">Pobierz kolejną lekcję</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

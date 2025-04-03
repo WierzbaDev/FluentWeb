@@ -1,0 +1,71 @@
+<div class="content">
+  <button class="exit-button" type="button" [routerLink]="[dashboardRoute]">
+    <svg width="37" height="37" viewBox="0 0 37 37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.0635 20.0417L20.6969 28.675L18.5 30.8333L6.16667 18.5L18.5 6.16666L20.6969 8.32499L12.0635 16.9583H30.8333V20.0417H12.0635Z" fill="#1D1B20"/>
+    </svg>
+  </button>
+  <div class="user-profile">
+    <!--      image-->
+    <h2>{{ user.name }}</h2>
+  </div>
+  <div class="user-data">
+    <p>
+      <span>Imię:</span>
+      <span class="name-container">
+        <ng-container *ngIf="showNamePanel; else viewName">
+          <input class="input-name" type="text" [(ngModel)]="userCopy.name">
+        </ng-container>
+        <ng-template #viewName>
+          {{ user.name }}
+        </ng-template>
+        <ng-container *ngIf="showNamePanel">
+          <button (click)="saveNewName()">Zapisz</button>
+        </ng-container>
+        <button class="icon" (click)="toggleName()">
+          <img src="/icon.png" alt="icon">
+        </button>
+      </span>
+    </p>
+
+    <p>
+      <span>Nazwisko:</span>
+      <span class="surname-container">
+        <ng-container *ngIf="showSurnamePanel; else viewSurname">
+          <input type="text" [(ngModel)]="userCopy.surname">
+        </ng-container>
+        <ng-template #viewSurname>
+          {{ user.surname }}
+        </ng-template>
+        <ng-container *ngIf="showSurnamePanel">
+          <button (click)="saveNewSurname()">Zapisz</button>
+        </ng-container>
+        <button class="icon" (click)="toggleSurnamePanel()">
+        <img src="/icon.png" alt="icon">
+      </button>
+      </span>
+    </p>
+
+    <p>
+      <span>Email:</span>
+      <span class="email-container">
+        {{ user.email }}
+      </span>
+    </p>
+
+
+    <p>
+      <span>Data urodzenia:</span>
+      <span class="birthday-container">
+        {{ user.birthday }}
+      </span>
+    </p>
+
+  </div>
+  <div class="buttons" *ngIf="!showPasswordPanel && !isDeletePanelOpen">
+    <button class="change-password-button" (click)="togglePassword()">Zmień hasło</button>
+    <button class="delete-account-button" (click)="toggleDeletePanel()">Usuń konto</button>
+  </div>
+  <app-change-password *ngIf="showPasswordPanel" (close)="togglePassword()"></app-change-password>
+  <app-delete-account *ngIf="isDeletePanelOpen" (close)="closeDeletePanel()"></app-delete-account>
+</div>
+

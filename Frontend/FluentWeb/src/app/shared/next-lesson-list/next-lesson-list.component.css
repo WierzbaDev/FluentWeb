@@ -1,0 +1,53 @@
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding:  30px 20px;
+  width: 300px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lesson-header {
+  color: white;
+  font-weight: bold;
+  background-color: #28B1B7;
+  border-radius: 15px;
+  padding: 10px 40px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+
+.index, .source-word, .translation {
+  display: inline-block;
+}
+
+.index {
+  width: 10%;
+  text-align: left;
+}
+
+.source-word {
+  width: 40%;
+  text-align: center;
+}
+
+.minus {
+  width: 5%;
+  text-align: center;
+}
+
+.translation {
+  width: 45%;
+  text-align: right;
+}

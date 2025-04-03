@@ -1,0 +1,13 @@
+<ng-container *ngIf="!isVerified; else verified">
+  <div class="header">
+    <h1>Zweryfikuj swoje konto</h1>
+    <p>Twoje konto zostanie automatycznie zweryfikowanie po wejściu na stronę</p>
+  </div>
+</ng-container>
+
+<ng-template #verified>
+  <div class="header">
+    <h1>Pomyślnie zweryfikowano konto</h1>
+    <p>Udało się pomyślnie zweryfikować konto! Ta strona zostanie zamknięta w ciągu 3 sekund lub możesz sam ją zamknąć</p>
+  </div>
+</ng-template>

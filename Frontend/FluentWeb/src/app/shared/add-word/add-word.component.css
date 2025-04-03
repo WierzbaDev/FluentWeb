@@ -1,0 +1,82 @@
+
+.create-button {
+  background-color: #84D4D8;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container {
+  position: fixed;
+  z-index: 1000;
+  top: 50vh;
+  left: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+}
+
+.content {
+  height: auto;
+  width: auto;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input, select {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #17a2b8;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.create-new-word-button, .cancel-button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.create-new-word-button {
+  background-color: #28B1B7;
+}
+
+.create-new-word-button:hover {
+  background-color: rgba(40, 177, 183, 0.75);
+}
+
+.cancel-button {
+  background-color: #CCCCCC;
+}
+
+.cancel-button:hover {
+   background-color: rgba(204, 204, 204, 0.75);
+ }

@@ -1,0 +1,22 @@
+<div class="nav">
+  <app-admin-nav></app-admin-nav>
+</div>
+
+<div class="container">
+  <div class="header">
+    <div class="left-header">
+      <h3>Panel Administratora</h3>
+    </div>
+    <div class="center-header">
+      <p class="date">{{ someDateVariable | customDate }}</p>
+    </div>
+    <div class="right-header">
+      <button class="logout-button" type="button" (click)="toggleLogoutPanel()">Wyloguj się</button>
+      <app-confirm-logout *ngIf="isLogoutPanel" (close)="closeLogoutPanel()"></app-confirm-logout>
+    </div>
+  </div>
+
+  <div class="content">
+    <app-admin-list-users></app-admin-list-users>
+  </div>
+</div>

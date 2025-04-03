@@ -1,0 +1,77 @@
+<div content="container">
+  <div class="change-page">
+    <button class="prev-page" type="button" (click)="prevPage()">
+      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.25 6.00001H1.75M1.75 6.00001L7 10.6667M1.75 6.00001L7 1.33334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <p>strona
+      <input type="number" min="1" max="{{ totalPages }}" value="{{ currentPage + 1 }}" [(ngModel)]="inputValue" required />
+      z {{ totalPages }}
+    </p>
+    <button class="next-page" type="button" (click)="nextPage()">
+      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.75 5.99999L12.25 5.99999M12.25 5.99999L7 1.33332M12.25 5.99999L7 10.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="content">
+    <table>
+      <thead>
+      <tr class="columns">
+        <th class="id">ID</th>
+        <th class="word">Słowo</th>
+        <th class="translation">Tłumaczenie</th>
+        <th class="cerf">Cerf</th>
+        <th>Opcje</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let word of words">
+        <td>{{ word.id }}</td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === word.id; else viewSourceWord">
+            <input [(ngModel)]="tempWord.sourceWord" />
+          </ng-container>
+          <ng-template #viewSourceWord>
+            {{ word.sourceWord }}
+          </ng-template>
+        </td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === word.id; else viewTranslation">
+            <input [(ngModel)]="tempWord.translation.PL" />
+          </ng-container>
+          <ng-template #viewTranslation>
+            {{ word.translation.PL }}
+          </ng-template>
+        </td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === word.id; else viewCerf">
+            <select [(ngModel)]="tempWord.wordCerfLevel">
+              <option *ngFor="let level of cerfLevels" [value]="level">{{ level }}</option>
+            </select>
+          </ng-container>
+          <ng-template #viewCerf>
+            {{ word.wordCerfLevel }}
+          </ng-template>
+        </td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === word.id; else editButton">
+            <button class="edit-button" (click)="saveEditing()">Zapisz</button>
+            <button class="cancel-button" (click)="cancelEditing()">Anuluj</button>
+            <button class="delete-button" (click)="deleteWord()">Usuń</button>
+          </ng-container>
+          <ng-template #editButton>
+            <button class="edit-button" (click)="startEditing(word)">Edytuj</button>
+          </ng-template>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+.hamburger {
+  width: 250px;
+  margin-top: 0;
+}
+
+.hamburger-button {
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 50px;
+  color: #28B1B7;
+  font-size: 35px;
+}
+
+.dashboard-button, .lesson-button, .repeat-button, .ranking-button, .setting-button {
+  padding: 10px;
+  margin-bottom: 40px;
+  border: none;
+  background: none;
+  color: #A0A0A0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-buttons svg {
+  display: block;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.dashboard-short {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ranking-button svg {
+  fill: #A0A0A0;
+}
+
+@media (max-height: 820px) {
+  .nav-container {
+    height: 90vh;
+  }
+}

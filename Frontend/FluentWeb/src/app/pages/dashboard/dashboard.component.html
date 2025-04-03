@@ -1,0 +1,65 @@
+<div class="nav">
+  <app-nav></app-nav>
+</div>
+
+<div class="container">
+  <div class="dashboard-header">
+    <div class="dashboard-header-left">
+      <h3>Dashboard</h3>
+    </div>
+    <div class="dashboard-header-center">
+      <h1>FluentWeb</h1>
+    </div>
+    <div class="dashboard-header-right">
+      <p class="date">{{ someDateVariable | customDate }}</p>
+    </div>
+    <div class="user-profile">
+      <app-user-profile-nav></app-user-profile-nav>
+    </div>
+  </div>
+  <div class="content">
+
+    <div class="greet">
+      <h2>Witaj ponownie <strong>name!</strong></h2>
+      <p>Każde słowo przybliża Cię do płynności! 🏆 Ucz się i powtarzaj codziennie.</p>
+    </div>
+
+
+    <div class="next-lesson">
+      <app-next-lesson-list></app-next-lesson-list>
+    </div>
+    <div class="ranking">
+      <app-ranking-list></app-ranking-list>
+    </div>
+    <div class="next-review">
+      <app-next-review></app-next-review>
+    </div>
+
+
+
+    <div class="short-to-lesson">
+      <div class="short-lesson-title">
+        <h3>Gotowy na kolejne wyznawnie? 🚀</h3>
+      </div>
+      <div class="short-lesson-description">
+        <p>Każda lekcja to krok bliżej do mistrzostwa! Nie czekaj, działaj!</p>
+      </div>
+      <div class="short-lesson-button">
+        <button [routerLink]="['/lesson']">🔥Startuj lekcje!</button>
+      </div>
+    </div>
+
+    <div class="short-to-review">
+      <div class="short-review-title">
+        <h3>Powtarzanie to klucz do sukcesu! </h3>
+      </div>
+      <div class="short-review-description">
+        <p>Utrwal słówka i bądź gotowy na każdą rozmowę! 💡</p>
+      </div>
+      <div class="short-review-button">
+        <button [routerLink]="['/repeat']">🔥Startuj powtórkę!</button>
+      </div>
+    </div>
+
+  </div>
+</div>

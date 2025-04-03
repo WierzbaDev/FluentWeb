@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  margin-top: 0;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 105px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #CCCCCC;
+}
+
+.delete-button {
+  background-color: #E63946;
+}

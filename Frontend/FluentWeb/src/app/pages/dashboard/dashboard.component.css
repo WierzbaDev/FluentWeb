@@ -1,0 +1,352 @@
+body {
+  margin: 0 !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #F5F5F5;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  overflow: auto;
+
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  gap: 25%;
+  width: 100%;
+  height: 60px;
+  padding:  0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.content {
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+}
+
+.next-lesson {
+  grid-column: 1;
+  grid-row: 2;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ranking {
+  grid-column: 2;
+  grid-row: 2;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.next-review {
+  grid-column: 3;
+  grid-row: 2;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.short-to-lesson {
+  grid-column: 1;
+  grid-row: 3;
+  text-align: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.short-to-review {
+  grid-column: 3;
+  grid-row: 3;
+  text-align: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container, .dashboard-header {
+  margin-left: 250px;
+  padding-top: 30px;
+  width: calc(100vw - 250px);
+}
+
+.short-to-review, .short-to-lesson {
+  position: relative;
+  max-width: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  overflow: hidden;
+}
+
+.short-to-review::before, .short-to-lesson::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #14b8a6, #06b6d4);
+  border-radius: 20px 20px 0 0;
+  margin-top: -1px;
+}
+
+.short-review-title h3, .short-to-lesson h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.short-review-description p, .short-lesson-description p {
+  color: #666;
+  margin-top: 8px;
+}
+
+.short-review-button button, .short-lesson-button button {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px auto 0;
+  padding: 12px 20px;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(to right, #14b8a6, #06b6d4);
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.short-review-button button:hover, short-lesson-button button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.greet {
+  grid-column: span 3;
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+  width: 75%;
+  max-width: 2000px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.end-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dashboard-header-left, .dashboard-header-right, .dashboard-header-center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1896px) {
+  .dashboard-header {
+    max-width: 80%;
+  }
+
+  .dashboard-header {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    max-width: 80%;
+    font-size: 14px;
+  }
+
+  .container {
+    margin-left: 0;
+    width: 100vw;
+    overflow: auto;
+  }
+
+  .content {
+    width: auto;
+  }
+}
+
+@media (max-width: 1368px) {
+  .dashboard-header {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    max-width: 70%;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+
+  .content {
+    margin-top: 90px;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 30px;
+  }
+
+  .content > * {
+    width: 100%;
+  }
+
+
+  .greet {
+    grid-column: span 2;
+    grid-row: 1;
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    width: 75%;
+    max-width: 2000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .next-lesson {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .next-review {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ranking {
+    grid-column: span 2;
+    grid-row: 3;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .short-to-lesson {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .short-to-review {
+    grid-column: 2;
+    grid-row: 4;
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20vh;
+    width: 100%;
+  }
+
+  .content > * {
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  .short-to-review, .short-to-lesson {
+    display: none;
+  }
+
+  .dashboard-header {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7rem;
+  }
+
+  .dashboard-header-left, .dashboard-header-right, .greet {
+    display: none;
+  }
+
+  .nav {
+    height: 40%;
+  }
+}
+
+@media (max-width: 320px) {
+  .dashboard-header {
+    position: relative;
+  }
+
+  .container {
+    min-height: 100svh;
+  }
+
+  .content {
+    padding: 10px;
+    margin: 0;
+  }
+
+  .nav {
+    overflow: auto;
+  }
+}

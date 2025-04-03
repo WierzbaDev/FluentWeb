@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="change-page">
+    <button class="prev-page" type="button" (click)="prevPage()">
+      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.25 6.00001H1.75M1.75 6.00001L7 10.6667M1.75 6.00001L7 1.33334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    </button>
+    <p>strona
+      <input type="number" value="{{ currentPage + 1 }}" min="1" max="{{ totalPages }}" required [(ngModel)]="inputValue" />
+      z {{ totalPages }}</p>
+
+    <button class="next-page" type="button" (click)="nextPage()">
+      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.75 5.99999L12.25 5.99999M12.25 5.99999L7 1.33332M12.25 5.99999L7 10.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="content">
+    <table>
+      <thead>
+        <tr class="columns">
+          <th>ID</th>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Zweryfikowany</th>
+          <th>Opcje</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === user.userId; else viewUsername">
+            <input [(ngModel)]="tempUser.name" />
+          </ng-container>
+          <ng-template #viewUsername>
+            {{ user.name }}
+          </ng-template>
+        </td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === user.userId; else viewSurname">
+            <input [(ngModel)]="tempUser.surname" />
+          </ng-container>
+          <ng-template #viewSurname>
+            {{ user.surname }}
+          </ng-template>
+        </td>
+
+        <td>
+            {{ user.email }}
+        </td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === user.userId; else viewRole">
+            <select [(ngModel)]="tempUser.role">
+              <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+            </select>
+          </ng-container>
+          <ng-template #viewRole>
+            {{ user.role }}
+          </ng-template>
+        </td>
+
+        <td>
+          {{ user.verify }}
+        </td>
+
+        <td>
+          <ng-container *ngIf="editingRowId === user.userId; else editButton">
+           <button class="edit-button" (click)="saveEditing()">Zapisz</button>
+            <button class="cancel-button" (click)="cancelEditing()">Anuluj</button>
+          </ng-container>
+          <ng-template #editButton>
+            <button class="edit-button" (click)="startEditing(user)">Edytuj</button>
+          </ng-template>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
