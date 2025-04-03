@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL_WORD_SERVICE}
+    username: ${SPRING_DATASOURCE_USERNAME_WORD_SERVICE}
+    password: ${SPRING_DATASOURCE_PASSWORD_WORD_SERVICE}
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    change-log: db/changelog/changelog-master.xml
+    enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${SECURITY_URL}
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST_WORD_SERVICE}
+      port: 6379
+
+
+  rabbitmq:
+    first:
+      host: ${SPRING_RABBITMQ_FIRST_HOST_WORD_SERVICE}
+      port: 5672
+      username: ${SPRING_RABBITMQ_FIRST_USERNAME_WORD_SERVICE}
+      password: ${SPRING_RABBITMQ_FIRST_PASSWORD_WORD_SERVICE}
+    second:
+      host: ${SPRING_RABBITMQ_SECOND_HOST_WORD_SERVICE}
+      port: 5672
+      username: ${SPRING_RABBITMQ_SECOND_USERNAME_WORD_SERVICE}
+      password: ${SPRING_RABBITMQ_SECOND_PASSWORD_WORD_SERVICE}
+    third:
+      host: ${SPRING_RABBITMQ_THIRD_HOST_WORD_SERVICE}
+      port: 5672
+      username: ${SPRING_RABBITMQ_THIRD_USERNAME_WORD_SERVICE}
+      password: ${SPRING_RABBITMQ_THIRD_PASSWORD_WORD_SERVICE}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+    fetchRegistry: true
+    registerWithEureka: true
+  instance:
+    hostname: word-service
+    prefer-ip-address: false
+    instance-id: word-service:8082
+    appname: word-service
