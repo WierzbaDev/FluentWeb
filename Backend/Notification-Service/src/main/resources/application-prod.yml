@@ -1,0 +1,37 @@
+spring:
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USERNAME}
+    password:  ${EMAIL_PASSWORD}
+
+
+  first:
+    rabbitmq:
+      host: ${RABBITMQ_FIRST_HOST_NOTIFICATION_SERVICE}
+      port: 5672
+      username: ${RABBITMQ_FIRST_USERNAME_NOTIFICATION_SERVICE}
+      password: ${RABBITMQ_FIRST_PASSWORD_NOTIFICATION_SERVICE}
+  second:
+    rabbitmq:
+      host: ${RABBITMQ_SECOND_HOST_NOTIFICATION_SERVICE}
+      port: 5672
+      username: ${RABBITMQ_SECOND_USERNAME_NOTIFICATION_SERVICE}
+      password: ${RABBITMQ_SECOND_PASSWORD_NOTIFICATION_SERVICE}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${SECURITY_URL}
+
+notification-service:
+  systemUsername: ${NOTIFICATION_SERVICE_ACCOUNT_USERNAME}
+  systemPassword: ${NOTIFICATION_SERVICE_ACCOUNT_PASSWORD}
+  refreshUrl: ${REFRESH_TOKEN_URL}
+  authUrl: ${AUTH_LOGIN_URL}
+  publicKey: ${SECURITY_URL}
+  word-service-url: ${WORD_SERVICE_URL}
+
+app:
+  frontendUrl: ${CURRENT_APP_URL}

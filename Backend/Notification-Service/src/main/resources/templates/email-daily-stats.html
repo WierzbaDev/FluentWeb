@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twoje codzienne statystyki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid #4CAF50;
+        }
+        .header {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .stats {
+            font-size: 18px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">Cześć, <span class="highlight">{IMIE}</span>! 🎉</div>
+    <p class="stats">✅ Poprawne słowa: <span class="highlight">{POPRAWNE}</span></p>
+    <p class="stats">❌ Błędne słowa: <span class="highlight">{BLEDNE}</span></p>
+    <p class="stats">📊 Łączna liczba słów: <span class="highlight">{TOTAL}</span></p>
+    <p class="stats">📈 Procent poprawnych odpowiedzi: <span class="highlight">{PROCENT}%</span></p>
+    <a href="#" class="button">Zobacz więcej</a>
+    <div class="footer">Dziękujemy za korzystanie z naszego serwisu! 🚀</div>
+</div>
+</body>
+</html>

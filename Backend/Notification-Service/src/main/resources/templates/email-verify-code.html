@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weryfikacja e-maila</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(244, 244, 244);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .content {
+            padding: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Weryfikacja e-maila</div>
+    <div class="content">
+        <p>Cześć <strong>{USERNAME}</strong>,</p>
+        <p>Dziękujemy za rejestrację w naszej aplikacji FluentWeb! Aby zakończyć proces i aktywować swoje konto, kliknij przycisk poniżej:</p>
+        <a href="{VERIFICATION_LINK}"  class="button">Zweryfikuj e-mail</a>
+        <p>Jeśli nie rejestrowałeś się w naszym serwisie, po prostu zignoruj tę wiadomość.</p>
+    </div>
+    <div class="footer">
+        © 2025 FluentWeb | Wszelkie prawa zastrzeżone.
+    </div>
+</div>
+</body>
+<script>
+    document.getElementById('verifyButton').addEventListener('click', function(event) {
+        setTimeout(function() {
+            window.close();
+        }, 500); // Zamknij stronę po 0.5 sekundy
+    });
+</script>
+</html>
