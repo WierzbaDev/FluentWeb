@@ -56,6 +56,9 @@ An English learning app that helps you remember words.
 - **Words:** As an admin I can add, edit and delete words from the admin panel.
 - **Users**  As an admin I can manage user data and ban users from the admin panel.
 
+## Microservices Roles
+### User-Service
+Responsibility for services related to user data, such as adding, changing data and deleting information. It also handles issuing JWT tokens based on the RS256 algorithm, which is asymmetric, utilizing both public and private keys. Other microservices can independently verify the tokens using the public key without needing to communicate with the user-service.
 ## System Architecture
 
 Below is a diagram of the dependecies between the system components
