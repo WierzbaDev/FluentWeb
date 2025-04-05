@@ -34,11 +34,6 @@ spring:
       username: ${SPRING_RABBITMQ_THIRD_USERNAME}
       password: ${SPRING_RABBITMQ_THIRD_PASSWORD}
 
-keystore:
-  file: /app/keystore.p12
-  password: nonfaf-vykju4-Wirtob
-  alias: rsa-keypair
-
 eureka:
   client:
     serviceUrl:
