@@ -59,6 +59,9 @@ An English learning app that helps you remember words.
 ## Microservices Roles
 ### User-Service
 Responsibility for services related to user data, such as adding, changing data and deleting information. It also handles issuing JWT tokens based on the RS256 algorithm, which is asymmetric, utilizing both public and private keys. Other microservices can independently verify the tokens using the public key without needing to communicate with the user-service.
+### Word-Service
+Responsibility for handling all word-related operations, including creating, updating, and deleting words. It also generates personalized lessons using the SuperMem spaced repetition algorithm.
+As part of its responsibilities, Word-Service creates review word sets for users, based on the review dates scheduled by SuperMem.
 ## System Architecture
 
 Below is a diagram of the dependecies between the system components
